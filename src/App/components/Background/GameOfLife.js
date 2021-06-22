@@ -8,7 +8,7 @@ export default class GameOfLife {
 		this.movementInterval = 1000;
 		this.pointsArray = [];
 		this.pointsArrayCopy = [];
-		this.geometry = new THREE.DodecahedronGeometry(1, 6);
+		this.geometry = new THREE.DodecahedronGeometry(0.5, 6);
 		this.material = new THREE.MeshBasicMaterial();
 		this.circleInstances = new THREE.InstancedMesh(this.geometry, this.material, this.size.x * this.size.y * this.size.z);
 		this.dummyObject = new THREE.Object3D();
@@ -18,7 +18,7 @@ export default class GameOfLife {
 	start() {
 		this.three.scene.add(this.circleInstances);
 		this.three.camera.position.copy(this.center);
-		this.three.camera.position.z = this.size.z + 10;
+		this.three.camera.position.z = this.size.z * 2;
 		this.three.camera.lookAt(this.center)
 		this.definePointsArray();
 		this.spawnRandomPoints();
@@ -32,7 +32,6 @@ export default class GameOfLife {
 		const render = (renderTime) => {
 			pastTime = renderTime - currentTime;
 			if(pastTime > this.movementInterval) {
-				console.log('ran')
 				this.startNextGeneration();
 				this.three.renderer.render(this.three.scene, this.three.camera);
 			}
@@ -75,7 +74,7 @@ export default class GameOfLife {
 	}
 
 	moveInstance(x, y, z, index = this.positionToMeshIndex(x, y, z)) {
-		this.dummyObject.position.set(x, y, y);
+		this.dummyObject.position.set(x, y, z);
 		this.dummyObject.updateMatrix();
 		this.circleInstances.setMatrixAt(index, this.dummyObject.matrix);
 	}
@@ -88,19 +87,19 @@ export default class GameOfLife {
 					const amountOfNeighbors = this.checkAmountOfNeighbors(x, y, z);
 					// Check if space is populated
 					if(this.pointsArrayCopy[x][y][z]) {
-						/*if(amountOfNeighbors < 4 || amountOfNeighbors > 20) {
+						if(amountOfNeighbors <= 2 || amountOfNeighbors >= 15) {
 							// Kill cell by solitude or overpopulation
-							this.pointsArray[x][y][z] = 0;
+							this.pointsArray[x][y][z] = false;
 							// Remove Cell from scene
 							this.moveInstance(999, 999, 999, this.positionToMeshIndex(x, y, z));
-						} else {*/
-							if(amountOfNeighbors >= 5 || amountOfNeighbors <= 20) {
+						} else {
+							if(amountOfNeighbors >= 3 || amountOfNeighbors <= 14) {
 								// Revive cell
 								this.pointsArray[x][y][z] = true;
 								// Add cell to scene
 								this.moveInstance(x, y, z);
 							}
-						//}
+						}
 					}
 				}
 			}
