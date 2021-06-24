@@ -25,7 +25,7 @@ export default {
     /* ... */
   },
   devOptions: {
-    /* ... */
+    port: 42069
   },
   buildOptions: {
     /* ... */

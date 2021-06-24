@@ -8,6 +8,7 @@ export default class GameOfLife {
 		this.movementInterval = 1000;
 		this.pointsArray = [];
 		this.pointsArrayCopy = [];
+		this.definePointsArray();
 		this.geometry = new THREE.DodecahedronGeometry(0.5, 6);
 		this.material = new THREE.MeshBasicMaterial();
 		this.circleInstances = new THREE.InstancedMesh(this.geometry, this.material, this.size.x * this.size.y * this.size.z);
@@ -20,7 +21,6 @@ export default class GameOfLife {
 		this.three.camera.position.copy(this.center);
 		this.three.camera.position.z = this.size.z * 2;
 		this.three.camera.lookAt(this.center)
-		this.definePointsArray();
 		this.spawnRandomPoints();
 		this.startLoop();
 	}
@@ -54,7 +54,7 @@ export default class GameOfLife {
 		}
 	}
 	spawnRandomPoints() {
-		for(let i = 0; i < 1000; i++) {
+		for(let i = 0; i < 200; i++) {
 			const position = this.generateRandomVectorInArea();
 			this.dummyObject.position.copy(position);
 			this.dummyObject.updateMatrix();
@@ -70,7 +70,7 @@ export default class GameOfLife {
 
 	positionToMeshIndex(x, y, z) {
 		// https://math.stackexchange.com/questions/1176184/how-to-find-unique-numbers-from-3-numbers
-		return x + (x + y + 1) + (x + y + z + 2);
+		return x + (y * this.size.x) + (z * this.size.y * this.size.z);
 	}
 
 	moveInstance(x, y, z, index = this.positionToMeshIndex(x, y, z)) {
@@ -87,13 +87,13 @@ export default class GameOfLife {
 					const amountOfNeighbors = this.checkAmountOfNeighbors(x, y, z);
 					// Check if space is populated
 					if(this.pointsArrayCopy[x][y][z]) {
-						if(amountOfNeighbors <= 2 || amountOfNeighbors >= 15) {
+						if(amountOfNeighbors <= 2 || amountOfNeighbors >= 20) {
 							// Kill cell by solitude or overpopulation
 							this.pointsArray[x][y][z] = false;
 							// Remove Cell from scene
 							this.moveInstance(999, 999, 999, this.positionToMeshIndex(x, y, z));
 						} else {
-							if(amountOfNeighbors >= 3 || amountOfNeighbors <= 14) {
+							if(amountOfNeighbors >= 3 || amountOfNeighbors <= 19) {
 								// Revive cell
 								this.pointsArray[x][y][z] = true;
 								// Add cell to scene
