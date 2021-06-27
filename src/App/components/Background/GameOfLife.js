@@ -9,7 +9,7 @@ export default class GameOfLife {
 		this.pointsArray = [];
 		this.pointsArrayCopy = [];
 		this.definePointsArray();
-		this.geometry = new THREE.DodecahedronGeometry(0.5, 6);
+		this.geometry = new THREE.DodecahedronGeometry(0.1, 6);
 		this.material = new THREE.MeshBasicMaterial();
 		this.circleInstances = new THREE.InstancedMesh(this.geometry, this.material, this.size.x * this.size.y * this.size.z);
 		this.dummyObject = new THREE.Object3D();
@@ -19,7 +19,6 @@ export default class GameOfLife {
 	start() {
 		this.three.scene.add(this.circleInstances);
 		this.three.camera.position.copy(this.center);
-		this.three.camera.position.z = this.size.z * 2;
 		this.three.camera.lookAt(this.center)
 		this.spawnRandomPoints();
 		this.startLoop();
@@ -33,6 +32,9 @@ export default class GameOfLife {
 			pastTime = renderTime - currentTime;
 			if(pastTime > this.movementInterval) {
 				this.startNextGeneration();
+				if(this.pointsArray.flat(5).every((cell) => !cell)) {
+					this.spawnRandomPoints();
+				}
 				this.three.renderer.render(this.three.scene, this.three.camera);
 			}
 
