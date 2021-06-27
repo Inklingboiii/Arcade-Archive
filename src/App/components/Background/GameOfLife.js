@@ -54,12 +54,10 @@ export default class GameOfLife {
 		}
 	}
 	spawnRandomPoints() {
-		for(let i = 0; i < 200; i++) {
-			const position = this.generateRandomVectorInArea();
-			this.dummyObject.position.copy(position);
-			this.dummyObject.updateMatrix();
-			this.circleInstances.setMatrixAt(this.positionToMeshIndex(this.dummyObject.position), this.dummyObject.matrix);
-			this.pointsArray[position.x][position.y][position.z] = true;
+		for(let i = 0; i < 100; i++) {
+			const { x, y, z } = this.generateRandomVectorInArea();
+			this.pointsArray[x][y][z] = true;
+			this.moveInstance(x, y, z);
 		}
 		this.circleInstances.instanceMatrix.needsUpdate = true;
 	}
@@ -69,7 +67,6 @@ export default class GameOfLife {
 	}
 
 	positionToMeshIndex(x, y, z) {
-		// https://math.stackexchange.com/questions/1176184/how-to-find-unique-numbers-from-3-numbers
 		return x + (y * this.size.x) + (z * this.size.y * this.size.z);
 	}
 
@@ -87,20 +84,20 @@ export default class GameOfLife {
 					const amountOfNeighbors = this.checkAmountOfNeighbors(x, y, z);
 					// Check if space is populated
 					if(this.pointsArrayCopy[x][y][z]) {
-						if(amountOfNeighbors <= 2 || amountOfNeighbors >= 20) {
+						if(amountOfNeighbors <= 2 || amountOfNeighbors >= 8) {
 							// Kill cell by solitude or overpopulation
 							this.pointsArray[x][y][z] = false;
 							// Remove Cell from scene
 							this.moveInstance(999, 999, 999, this.positionToMeshIndex(x, y, z));
-						} else {
-							if(amountOfNeighbors >= 3 || amountOfNeighbors <= 19) {
+						}
+					}	else {
+							if(amountOfNeighbors === 1) {
 								// Revive cell
 								this.pointsArray[x][y][z] = true;
 								// Add cell to scene
 								this.moveInstance(x, y, z);
 							}
 						}
-					}
 				}
 			}
 		}
