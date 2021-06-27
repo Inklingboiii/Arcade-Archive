@@ -7,7 +7,7 @@ export default function() {
 	const canvasReference = useRef();
 	useEffect(() => {
 	const three = new Three(canvasReference.current);
-	const gameOfLife = new GameOfLife(three, 20, 20, 20);
+	const gameOfLife = new GameOfLife(three, 10, 10, 10);
 	gameOfLife.start();
 	}, []);
 	return(
