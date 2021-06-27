@@ -36,7 +36,6 @@ export default class GameOfLife {
 				if(this.pointsArray.flat(5).every((cell) => !cell)) {
 					this.spawnRandomPoints();
 				}
-				console.log(this.three.renderer.info)
 				this.three.renderer.render(this.three.scene, this.three.camera);
 			}
 
