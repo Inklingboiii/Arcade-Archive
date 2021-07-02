@@ -8,7 +8,7 @@ export default function() {
 	useEffect(() => {
 		const three = new Three(canvasReference.current);
 		if(!three.isWebGLAvailable) return;
-		const gameOfLife = new GameOfLife(three, 10, 10, 10);
+		const gameOfLife = new GameOfLife(three, 20, 20, 20);
 		gameOfLife.start();
 	}, []);
 	return(

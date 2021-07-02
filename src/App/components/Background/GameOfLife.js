@@ -5,7 +5,13 @@ export default class GameOfLife {
 	constructor(Three, x, y, z) {
 		this.three = Three;
 		this.size = new THREE.Vector3(x, y, z);
-		this.center = this.size.clone().multiplyScalar(0.5)
+		this.center = this.size.clone().multiplyScalar(0.5);
+		this.minX = Math.round(this.center.x / 2);
+		this.maxX = Math.round(this.center.x * 1.5);
+		this.minY = Math.round(this.center.y / 2);
+		this.maxY = Math.round(this.center.y * 1.5);
+		this.minZ = Math.round(this.center.z / 2);
+		this.maxZ = Math.round(this.center.z * 1.5);
 		this.movementInterval = 1000;
 		this.pointsArray = [];
 		this.pointsArrayCopy = [];
@@ -23,7 +29,8 @@ export default class GameOfLife {
 		this.three.scene.add(this.circleInstances);
 		this.three.camera.position.copy(this.center);
 		this.spawnRandomPoints();
-		this.stats.showPanel(1); // 0: fps, 1: ms, 2: mb, 3+: custom
+		this.spawnCube();
+		this.stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
 		document.body.appendChild( this.stats.dom );
 		this.startLoop();
 	}
@@ -71,6 +78,18 @@ export default class GameOfLife {
 		this.circleInstances.instanceMatrix.needsUpdate = true;
 	}
 
+	spawnCube() {
+		// First both sides on the z axis
+		for(let z = this.minZ; z < this.maxZ; z++) {
+			for(let y = this.minY; y < this.maxY; y++) {
+				for(let x = this.minX; x < this.maxX; x++) {
+					this.pointsArray[x][y][z] = true;
+					this.moveInstance(x, y, z);
+				}
+			}
+		}
+		this.circleInstances.instanceMatrix.needsUpdate = true;
+	}
 	generateRandomVectorInArea() {
 		return {
 			x: Math.floor(Math.random() * this.size.x),
@@ -119,15 +138,15 @@ export default class GameOfLife {
 
 	checkAmountOfNeighbors(x, y, z) {
 		let amountOfNeighbors = 0;
-		for(let nx = x - 1; nx < x + 1; nx++) {
-			for(let ny = y - 1; ny < y + 1; ny++) {
-				for(let nz = z - 1; nz < z + 1; nz++) {
+		for(let nx = x - 1; nx <= x + 1; nx++) {
+			for(let ny = y - 1; ny <= y + 1; ny++) {
+				for(let nz = z - 1; nz <= z + 1; nz++) {
 					// Skip if neighbor equals original cell
 					if(nx === x && ny === y && nz === z) {
 						continue;
 					}
 					// Skip if neighbor is out of bounds
-					if(nx < 0 || nx > this.size.x || ny < 0 || ny > this.size.y || nz < 0 || nz > this.size.z) {
+					if(nx < 0 || nx >= this.size.x || ny < 0 || ny >= this.size.y || nz < 0 || nz >= this.size.z) {
 						continue;
 					}
 					if(this.pointsArrayCopy[nx][ny][nz]) {
