@@ -6,14 +6,15 @@ import GameOfLife from './GameOfLife.js';
 export default function() {
 	const canvasReference = useRef();
 	useEffect(() => {
-	const three = new Three(canvasReference.current);
-	const gameOfLife = new GameOfLife(three, 10, 10, 10);
-	gameOfLife.start();
+		const three = new Three(canvasReference.current);
+		if(!three.isWebGLAvailable) return;
+		const gameOfLife = new GameOfLife(three, 10, 10, 10);
+		gameOfLife.start();
 	}, []);
 	return(
 		<canvas
 		className="background"
 		ref={canvasReference}
 		/>
-	)
+	);
 }

@@ -40,7 +40,7 @@ export default class GameOfLife {
 			}
 
 			currentTime = renderTime - (pastTime % this.movementInterval);
-			requestAnimationFrame(render)
+			requestAnimationFrame(render);
 		}
 		requestAnimationFrame(render);
 	}
@@ -66,7 +66,11 @@ export default class GameOfLife {
 	}
 
 	generateRandomVectorInArea() {
-		return new THREE.Vector3(Math.floor(Math.random() * this.size.x), Math.floor(Math.random() * this.size.y), Math.floor(Math.random() * this.size.z));
+		return {
+			x: Math.floor(Math.random() * this.size.x),
+			y: Math.floor(Math.random() * this.size.y), 
+			z: Math.floor(Math.random() * this.size.z)
+		};
 	}
 
 	positionToMeshIndex(x, y, z) {

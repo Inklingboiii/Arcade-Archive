@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { WEBGL } from 'three/examples/jsm/WebGL.js';
 
 export default class Three {
 	constructor(canvas) {
@@ -8,8 +9,9 @@ export default class Three {
 		window.addEventListener('resize', this.resizeCanvas);
 		this.scene = new THREE.Scene();
 		this.camera = new THREE.PerspectiveCamera(70, this.canvasWidth / this.canvasHeight, 0.1, 75);
-		this.renderer = new THREE.WebGLRenderer({canvas});
+		this.renderer = new THREE.WebGLRenderer({ canvas });
 		this.renderer.setSize(this.canvasWidth, this.canvasHeight, false);
+		this.isWebGLAvailable = WEBGL.isWebGLAvailable();
 	}
 
 	resizeCanvas = () => {
@@ -19,7 +21,7 @@ export default class Three {
 			this.renderer.setSize(this.canvasWidth, this.canvasHeight, false);
 			this.camera.aspect = this.canvasWidth / this.canvasHeight;
 			this.camera.updateProjectionMatrix();
-			this.renderer.render(this.scene, this.camera)
+			this.renderer.render(this.scene, this.camera);
 		}
 	}
 }
