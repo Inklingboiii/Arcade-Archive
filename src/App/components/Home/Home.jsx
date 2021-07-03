@@ -6,7 +6,7 @@ export default function Home() {
 	return(
 		<>
 			<Background/>
-			<NavBar page={0}/>
+			<NavBar page={0} />
 		</>
 	)
 }
