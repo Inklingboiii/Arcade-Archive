@@ -21,6 +21,8 @@ export default class GameOfLife {
 		this.definePointsArray();
 
 		this.spaceTexture = this.three.textureLoader.load(spaceImage);
+		this.spaceTexture.wrapS = THREE.RepeatWrapping;
+		this.spaceTexture.wrapT = THREE.RepeatWrapping;
 		this.three.scene.background = this.spaceTexture
 
 		this.geometry = new THREE.DodecahedronGeometry(0.1, 6);
