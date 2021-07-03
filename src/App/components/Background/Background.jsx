@@ -15,6 +15,8 @@ export default function() {
 		<canvas
 		className="background"
 		ref={canvasReference}
-		/>
+		>
+		A simulation of conways game of life as background
+		</canvas>
 	);
 }

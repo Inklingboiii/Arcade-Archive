@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import Stats from 'three/examples/js/libs/stats.min.js';
 
 export default class GameOfLife {
 	constructor(Three, x, y, z) {
@@ -12,7 +11,7 @@ export default class GameOfLife {
 		this.maxY = Math.round(this.center.y * 1.5);
 		this.minZ = Math.round(this.center.z / 2);
 		this.maxZ = Math.round(this.center.z * 1.5);
-		this.movementInterval = 1000;
+		this.movementInterval = 3000;
 		this.pointsArray = [];
 		this.pointsArrayCopy = [];
 		this.definePointsArray();
@@ -22,7 +21,6 @@ export default class GameOfLife {
 		this.circleInstances.matrixAutoUpdate = false;
 		this.dummyObject = new THREE.Object3D();
 		this.dummyObject.matrixAutoUpdate = false;
-		this.stats = new Stats();
 	}
 
 	start() {
@@ -30,8 +28,6 @@ export default class GameOfLife {
 		this.three.camera.position.copy(this.center);
 		this.spawnRandomPoints();
 		this.spawnCube();
-		this.stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
-		document.body.appendChild( this.stats.dom );
 		this.startLoop();
 	}
 
@@ -40,7 +36,6 @@ export default class GameOfLife {
 		let currentTime = performance.now();
 		let pastTime;
 		const render = (renderTime) => {
-			this.stats.begin();
 			pastTime = renderTime - currentTime;
 			if(pastTime > this.movementInterval) {
 				this.startNextGeneration();
@@ -53,7 +48,6 @@ export default class GameOfLife {
 
 			currentTime = renderTime - (pastTime % this.movementInterval);
 			requestAnimationFrame(render);
-			this.stats.end();
 		}		
 		requestAnimationFrame(render);
 	}
