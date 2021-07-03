@@ -12,6 +12,7 @@ export default class Three {
 		this.renderer = new THREE.WebGLRenderer({ canvas });
 		this.renderer.setSize(this.canvasWidth, this.canvasHeight, false);
 		this.isWebGLAvailable = WEBGL.isWebGLAvailable();
+		this.textureLoader = new THREE.TextureLoader();
 	}
 
 	resizeCanvas = () => {

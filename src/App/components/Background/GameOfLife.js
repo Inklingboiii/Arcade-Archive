@@ -1,4 +1,7 @@
-import * as THREE from 'three';
+import * as THREE from 'three'
+import spaceImage from './space.jpg';
+import sunImage from './sun.jpg';
+import sunNormalMap from './sunNormalMap.jpg';
 
 export default class GameOfLife {
 	constructor(Three, x, y, z) {
@@ -12,18 +15,29 @@ export default class GameOfLife {
 		this.minZ = Math.round(this.center.z / 2);
 		this.maxZ = Math.round(this.center.z * 1.5);
 		this.movementInterval = 3000;
+
 		this.pointsArray = [];
 		this.pointsArrayCopy = [];
 		this.definePointsArray();
+
+		this.spaceTexture = this.three.textureLoader.load(spaceImage);
+		this.three.scene.background = this.spaceTexture
+
 		this.geometry = new THREE.DodecahedronGeometry(0.1, 6);
-		this.material = new THREE.MeshBasicMaterial();
+		this.material = new THREE.MeshPhongMaterial({
+			map: this.three.textureLoader.load(sunImage),
+			normalMap: this.three.textureLoader.load(sunNormalMap)
+		});
 		this.circleInstances = new THREE.InstancedMesh(this.geometry, this.material, this.size.x * this.size.y * this.size.z);
 		this.circleInstances.matrixAutoUpdate = false;
+		this.light = new THREE.PointLight();
+		this.light.position.copy(this.center);
 		this.dummyObject = new THREE.Object3D();
 		this.dummyObject.matrixAutoUpdate = false;
 	}
 
 	start() {
+		this.three.scene.add(this.light)
 		this.three.scene.add(this.circleInstances);
 		this.three.camera.position.copy(this.center);
 		this.spawnRandomPoints();
@@ -97,7 +111,9 @@ export default class GameOfLife {
 	}
 
 	moveInstance(x, y, z, index = this.positionToMeshIndex(x, y, z)) {
-		this.dummyObject.position.set(x, y, z);
+		// add random off set to make it look more chaotic
+		this.dummyObject.position.set(x + Math.random(), y + Math.random(), z + Math.random());
+		this.dummyObject.rotation.set(Math.random(), Math.random(), Math.random())
 		this.dummyObject.updateMatrix();
 		this.circleInstances.setMatrixAt(index, this.dummyObject.matrix);
 	}

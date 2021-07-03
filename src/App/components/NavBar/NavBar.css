@@ -11,7 +11,7 @@
 	z-index: 5;
 	padding: 1em;
 	letter-spacing: 2px;
-	mix-blend-mode: difference;
+	mix-blend-mode: hard-light;
 	font-size: max(1.2rem, 1vw);
 }
 
