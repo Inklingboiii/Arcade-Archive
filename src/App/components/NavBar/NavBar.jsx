@@ -6,10 +6,19 @@ export default function NavBar({ page }) {
 	const [navToggle, setNavToggle] = useState(false);
  	return(
 		<nav className='nav'>
-			<button type="button" onClick={() => setNavToggle(!navToggle)} className='nav__toggler'>
+			<button type="button" onClick={() => setNavToggle(!navToggle)} className='nav__toggler' titel="Toggle Menu">
 			{
-				navToggle ? 'UnToggle'
-				: 'Toggle'
+				navToggle ?
+				 <svg className="nav__svg" preserveAspectRatio="xMinYMax meet" xmlns="http://www.w3.org/2000/svg">
+					<line y1="20%" y2="20%" x1="30%" x2="100%" strokeWidth="10" stroke="white"/>
+					<line y1="30%" y2="20%" x1="60%" x2="30%" strokeWidth="10" stroke="white"/>
+					<line y1="10%" y2="20%" x1="60%" x2="30%" strokeWidth="10" stroke="white"/>
+				 </svg>
+				: <svg className="nav__svg" preserveAspectRatio="xMinYMax meet" xmlns="http://www.w3.org/2000/svg">
+					<line y1="10%" y2="10%" x1="0%" x2="100%" strokeWidth="10" stroke="white"/>
+					<line y1="40%" y2="40%" x1="0%" x2="100%" strokeWidth="10" stroke="white"/>
+					<line y1="70%" y2="70%" x1="0%" x2="100%" strokeWidth="10" stroke="white"/>
+				</svg>
 			}
 			</button>
 			<article className={`nav__content ${navToggle ? 'nav__content--active' : 'nav__content--inactive'}`}>
