@@ -114,7 +114,7 @@ export default class GameOfLife {
 
 	moveInstance(x, y, z, index = this.positionToMeshIndex(x, y, z)) {
 		// add random off set to make it look more chaotic
-		this.dummyObject.position.set(x + Math.random(), y + Math.random(), z + Math.random());
+		this.dummyObject.position.set(x, y, z);
 		this.dummyObject.rotation.set(Math.random(), Math.random(), Math.random())
 		this.dummyObject.updateMatrix();
 		this.circleInstances.setMatrixAt(index, this.dummyObject.matrix);
