@@ -16,8 +16,8 @@ export default function NavBar({ page }) {
 				 </svg>
 				: <svg className="nav__svg" preserveAspectRatio="xMinYMax meet" xmlns="http://www.w3.org/2000/svg">
 					<line y1="10%" y2="10%" x1="0%" x2="100%" strokeWidth="10" stroke="white"/>
-					<line y1="20%" y2="20%" x1="0%" x2="100%" strokeWidth="10" stroke="white"/>
-					<line y1="30%" y2="30%" x1="0%" x2="100%" strokeWidth="10" stroke="white"/>
+					<line y1="40%" y2="40%" x1="0%" x2="100%" strokeWidth="10" stroke="white"/>
+					<line y1="70%" y2="70%" x1="0%" x2="100%" strokeWidth="10" stroke="white"/>
 				</svg>
 			}
 			</button>
