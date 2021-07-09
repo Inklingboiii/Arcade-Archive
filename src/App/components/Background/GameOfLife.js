@@ -1,7 +1,4 @@
 import * as THREE from 'three'
-import spaceImage from './space.jpg';
-import sunImage from './sun.jpg';
-import sunNormalMap from './sunNormalMap.jpg';
 
 export default class GameOfLife {
 	constructor(Three, x, y, z) {
@@ -20,16 +17,10 @@ export default class GameOfLife {
 		this.pointsArrayCopy = [];
 		this.definePointsArray();
 
-		this.spaceTexture = this.three.textureLoader.load(spaceImage);
-		this.spaceTexture.wrapS = THREE.RepeatWrapping;
-		this.spaceTexture.wrapT = THREE.RepeatWrapping;
-		this.three.scene.background = this.spaceTexture
+		this.three.scene.background = new THREE.Color('#111');
 
 		this.geometry = new THREE.DodecahedronGeometry(0.1, 6);
-		this.material = new THREE.MeshPhongMaterial({
-			map: this.three.textureLoader.load(sunImage),
-			normalMap: this.three.textureLoader.load(sunNormalMap)
-		});
+		this.material = new THREE.MeshPhongMaterial();
 		this.circleInstances = new THREE.InstancedMesh(this.geometry, this.material, this.size.x * this.size.y * this.size.z);
 		this.circleInstances.matrixAutoUpdate = false;
 		this.light = new THREE.PointLight();
@@ -44,6 +35,8 @@ export default class GameOfLife {
 		this.three.camera.position.copy(this.center);
 		this.spawnRandomPoints();
 		this.spawnCube();
+		// So it appears immediatly and not after next render iteration
+		this.three.renderer.render(this.three.scene, this.three.camera);
 		this.startLoop();
 	}
 
@@ -58,6 +51,7 @@ export default class GameOfLife {
 				// Spanws new points, if there arent any left
 				if(this.pointsArray.flat(5).every((cell) => !cell)) {
 					this.spawnRandomPoints();
+					this.spawnCube
 				}
 				this.three.renderer.render(this.three.scene, this.three.camera);
 			}
