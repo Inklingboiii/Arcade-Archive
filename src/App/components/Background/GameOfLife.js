@@ -51,7 +51,7 @@ export default class GameOfLife {
 				// Spanws new points, if there arent any left
 				if(this.pointsArray.flat(5).every((cell) => !cell)) {
 					this.spawnRandomPoints();
-					this.spawnCube
+					this.spawnCube();
 				}
 				this.three.renderer.render(this.three.scene, this.three.camera);
 			}
