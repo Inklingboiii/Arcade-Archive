@@ -1,6 +1,6 @@
 import React from 'react';
-import Background from '../Background/Background.jsx';
-import NavBar from '../NavBar/NavBar.jsx';
+import Background from '../../Background/Background.jsx';
+import NavBar from '../../NavBar/NavBar.jsx';
 
 export default function Home() {
 	return(
@@ -8,5 +8,5 @@ export default function Home() {
 			<Background/>
 			<NavBar page={0} />
 		</>
-	)
+	);
 }
