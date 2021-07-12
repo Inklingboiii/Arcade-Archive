@@ -16,4 +16,6 @@
 	display: inline-block;
 	transform: perspective(1em) rotateX(3deg);
 	box-shadow: 0 0 0.1em 0.1em var(--color-primary);
+	/* Stops element from overflowing with the additional width from the transform*/
+	max-width: 85vw;
 }
