@@ -9,9 +9,11 @@
 }
 
 .header__title {
-	border: 10px solid currentColor;
 	display: inline-block;
 	margin: auto;
 	padding: 1em;
 	font-size: 3rem;
+	display: inline-block;
+	transform: perspective(1em) rotateX(3deg);
+	box-shadow: 0 0 0.1em 0.1em var(--color-primary);
 }
