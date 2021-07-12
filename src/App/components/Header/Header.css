@@ -1,0 +1,17 @@
+.header {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	mix-blend-mode: hard-light;
+	background-color: var(--color-background);
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+}
+
+.header__title {
+	border: 10px solid currentColor;
+	display: inline-block;
+	margin: auto;
+	padding: 1em;
+	font-size: 3rem;
+}

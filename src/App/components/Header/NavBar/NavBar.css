@@ -1,5 +1,4 @@
 .nav__content {
-	background: var(--color-background);
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
@@ -11,8 +10,9 @@
 	z-index: 5;
 	padding: 1em;
 	letter-spacing: 2px;
-	mix-blend-mode: hard-light;
+	text-transform: uppercase;
 	font-size: max(1.2rem, 1vw);
+	background: black;
 }
 
 .nav__logo {
@@ -45,7 +45,7 @@
 	flex-grow: 2;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-evenly;
 }
 
 .nav__link {
