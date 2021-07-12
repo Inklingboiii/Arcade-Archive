@@ -26,13 +26,13 @@ export default function NavBar({ page }) {
 				<a href="#" role="logo" className="nav__logo">Arcade Archive</a>
 				<ul className="nav__list">
 					<li>
-						<Link to="./" className={page === 0 ? 'nav__link--active' : 'nav__link'}>Home</Link>
+						<Link to="./" className={page === 0 ? 'nav__link nav__link--active' : 'nav__link'}>Home</Link>
 					</li>
 					<li>
-						<Link to="/Games" className={page === 1 ? 'nav__link--active' : 'nav__link'}>Games</Link>
+						<Link to="/Games" className={page === 1 ? 'nav__link nav__link--active' : 'nav__link'}>Games</Link>
 					</li>
 					<li>
-						<Link to="/Planned-Games" className={page === 1 ? 'nav__link--active' : 'nav__link'}>Planned Games</Link>
+						<Link to="/Planned-Games" className={page === 1 ? 'nav__link nav__link--active' : 'nav__link'}>Planned Games</Link>
 					</li>
 				</ul>
 			</article>

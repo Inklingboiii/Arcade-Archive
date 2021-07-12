@@ -1,8 +1,6 @@
 .nav__content {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
 	position: fixed;
 	left: 0;
 	right: 0;
@@ -50,10 +48,12 @@
 
 .nav__link {
 	color: var(--color-primary);
+	padding: 0.5em;
 }
 
 .nav__link--active {
-	color:  var(--color-secondary);
+	background: var(--color-background--light);
+	border-radius: 5%;
 }
 
 .nav__toggler {
@@ -62,7 +62,6 @@
 @media (max-width: 40em) {
 	.nav__content {
 		flex-direction: column;
-		align-items: stretch;
 		left: unset;
 		min-height: 100vh;
 		/* Make nav bar invisible*/
