@@ -36,7 +36,7 @@ export default class GameOfLife {
 		this.spawnRandomPoints();
 		this.spawnCube();
 		// So it appears immediatly and not after next render iteration
-		this.three.renderer.render(this.three.scene, this.three.camera);
+		this.three.render();
 		this.startLoop();
 	}
 
@@ -53,7 +53,7 @@ export default class GameOfLife {
 					this.spawnRandomPoints();
 					this.spawnCube();
 				}
-				this.three.renderer.render(this.three.scene, this.three.camera);
+				this.three.render()
 			}
 
 			currentTime = renderTime - (pastTime % this.movementInterval);
@@ -168,6 +168,6 @@ export default class GameOfLife {
 		const rect = document.body.getBoundingClientRect();
 		const cameraZoom = this.center.z + (-rect.top / (-(window.innerHeight - rect.height) / this.center.z));
 		this.three.camera.position.z = cameraZoom;
-		this.three.renderer.render(this.three.scene, this.three.camera)
+		requestAnimationFrame(this.three.render);
 	}
 }

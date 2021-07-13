@@ -24,4 +24,8 @@ export default class Three {
 			this.renderer.render(this.scene, this.camera);
 		}
 	}
+
+	render = () => {
+		this.renderer.render(this.scene, this.camera);
+	}
 }
