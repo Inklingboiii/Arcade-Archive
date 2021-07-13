@@ -4,7 +4,7 @@
 	justify-content: space-evenly;
 	align-items: center;
 	min-height: 50vh;
-	background-color: var(--color-background--light);
+	background-color: var(--color-background);
 	mix-blend-mode: difference;
 	clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
 }
