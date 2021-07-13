@@ -8,7 +8,7 @@ export default function() {
 	useEffect(() => {
 		const three = new Three(canvasReference.current);
 		if(!three.isWebGLAvailable) return;
-		const gameOfLife = new GameOfLife(three, 10, 10, 10);
+		const gameOfLife = new GameOfLife(three, 5, 5, 5);
 		gameOfLife.start();
 		{/* Move camera, when page is scrolled */}
 		document.body.onscroll = gameOfLife.moveCamera;
