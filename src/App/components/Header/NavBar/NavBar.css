@@ -51,6 +51,11 @@
 	padding: 0.5em;
 }
 
+.nav__link:hover,
+.nav__link:focus {
+	text-decoration: underline;
+}
+
 .nav__link--active {
 	background: var(--color-background--light);
 	border-radius: 5%;
@@ -97,5 +102,9 @@
 		background: transparent;
 		border: none;
 		cursor: pointer;
+	}
+	
+	.nav__svg {
+		width: 5em;
 	}
 }

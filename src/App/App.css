@@ -1,3 +1,4 @@
+/* Global defaults/styles*/
 *,
 *::before,
 *::after {
@@ -45,11 +46,10 @@ a {
 	text-decoration: none;
 }
 
-a:hover,
-a:focus {
-	text-decoration: underline;
+p {
+	/* Increases readability*/
+	max-width: 75ch;
 }
-
 .visually-hidden {   
   /* Contain text within 1px box */
   height: 1px; 
@@ -63,4 +63,19 @@ a:focus {
   clip-path: inset(50%); /* browsers in the future */  
   /* Prevent the screen reader to skip spaces between words */
   white-space: nowrap;
+}
+
+/* Components*/
+.btn {
+	border: none;
+	padding: 1em 1.5em;
+	border-radius: 10px;
+	background-color: var(--color-secondary);
+	color: white;
+	transition: filter 0.4s;
+}
+
+.btn:focus,
+.btn:hover {
+	filter: brightness(90%);
 }

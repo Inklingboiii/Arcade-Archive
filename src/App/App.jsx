@@ -4,16 +4,20 @@ import {
  Route,
  Switch
 } from 'react-router-dom';
+import Background from './components/Background/Background.jsx'
 import Home from './components/pages/Home/Home.jsx';
 import './App.css';
 export default function App() {
 	return (
-		<Router>
-			<Switch>
-				<Route path="/">
-					<Home />
-				</Route>
-			</Switch>
-		</Router>
-	)
+		<>
+			<Background />
+			<Router>
+				<Switch>
+					<Route path="/">
+						<Home />
+					</Route>
+				</Switch>
+			</Router>
+		</>
+	);
 }

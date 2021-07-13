@@ -1,0 +1,18 @@
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	min-height: 50vh;
+	background-color: var(--color-background--light);
+	mix-blend-mode: difference;
+	clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.main__text {
+	font-size: 1.2rem;
+}
+
+.main__text > .dot {
+	color: var(--color-primary);
+}
