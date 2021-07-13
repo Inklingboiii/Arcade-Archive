@@ -163,4 +163,11 @@ export default class GameOfLife {
 		}
 		return amountOfNeighbors;
 	}
+
+	moveCamera = () => {
+		const rect = document.body.getBoundingClientRect();
+		const cameraZoom = this.center.z + (-rect.top / (-(window.innerHeight - rect.height) / this.center.z));
+		this.three.camera.position.z = cameraZoom;
+		this.three.renderer.render(this.three.scene, this.three.camera)
+	}
 }

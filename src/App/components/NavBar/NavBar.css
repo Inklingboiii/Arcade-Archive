@@ -10,7 +10,7 @@
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	font-size: max(1.2rem, 1vw);
-	background: black;
+	background: var(--color-background);
 }
 
 .nav__logo {
@@ -40,7 +40,7 @@
 }
 
 .nav__list {
-	flex-grow: 2;
+	flex-grow: 1;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
