@@ -4,9 +4,12 @@
 	justify-content: space-evenly;
 	align-items: center;
 	min-height: 50vh;
+	padding: 0 1em;
 	background-color: var(--color-background);
-	mix-blend-mode: difference;
-	clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+	mix-blend-mode: screen;
+	backdrop-filter: brightness(80%);
+	-webkit-backdrop-filter: brightness(80%);
+	clip-path: polygon(50% 0, 100% 15%, 100% 100%, 0 100%, 0 15%);
 }
 
 .main__text {

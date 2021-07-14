@@ -72,10 +72,14 @@ p {
 	border-radius: 10px;
 	background-color: var(--color-secondary);
 	color: white;
-	transition: filter 0.4s;
+	font-size: 1.2rem;
+	mix-blend-mode: luminosity;
+	filter: contrast(200%);
+	transform: perspective(1em) rotateX(-2deg);
+	box-shadow: 0 0 0.5em white;
 }
 
 .btn:focus,
 .btn:hover {
-	filter: brightness(90%);
+	mix-blend-mode: unset;
 }
