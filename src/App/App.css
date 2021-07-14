@@ -75,7 +75,7 @@ p {
 	font-size: 1.2rem;
 	mix-blend-mode: luminosity;
 	filter: contrast(200%);
-	transform: perspective(1em) rotateX(-2deg);
+	transform: perspective(1em) rotateX(-1deg);
 	box-shadow: 0 0 0.5em white;
 }
 
