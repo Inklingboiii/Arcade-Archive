@@ -1,6 +1,5 @@
 @font-face {
 	font-family: "Zen Dots";
-	src: local("AcmeFont"),
-	url("ZenDots-Regular.ttf") format("truetype");
+	src: url("ZenDots-Regular.ttf") format("truetype");
 	font-display: swap;
 }

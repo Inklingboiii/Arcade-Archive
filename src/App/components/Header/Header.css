@@ -4,7 +4,7 @@
 	align-items: center;
 	justify-content: center;
 	mix-blend-mode: hard-light;
-	background-color: var(--color-background);
+	background-color: var(--color-background--dark);
 	clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
 }
 

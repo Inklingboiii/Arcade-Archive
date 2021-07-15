@@ -11,14 +11,14 @@ export default function NavBar({ page }) {
 			{
 				navToggle ?
 				 <svg className="nav__svg" viewBox="0 0 100 40" preserveAspectRatio="xMinYMax meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-					<line y1="20" y2="20" x1="30" x2="100" strokeWidth="10" stroke="white"/>
-					<line y1="40" y2="20" x1="60" x2="30" strokeWidth="10" stroke="white"/>
-					<line y1="0" y2="20" x1="60" x2="30" strokeWidth="10" stroke="white"/>
+					<line y1="20" y2="20" x1="30" x2="100" strokeWidth="10" />
+					<line y1="40" y2="20" x1="60" x2="30" strokeWidth="10" />
+					<line y1="0" y2="20" x1="60" x2="30" strokeWidth="10" />
 				 </svg>
 				: <svg className="nav__svg" viewBox="0 -10 100 60"preserveAspectRatio="xMinYMax meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-					<line y1="0" y2="0" x1="0" x2="100" strokeWidth="10" stroke="white"/>
-					<line y1="20" y2="20" x1="0" x2="100" strokeWidth="10" stroke="white"/>
-					<line y1="40" y2="40" x1="0" x2="100" strokeWidth="10" stroke="white"/>
+					<line y1="0" y2="0" x1="0" x2="100" strokeWidth="10" />
+					<line y1="20" y2="20" x1="0" x2="100" strokeWidth="10" />
+					<line y1="40" y2="40" x1="0" x2="100" strokeWidth="10" />
 				</svg>
 			}
 			</button>

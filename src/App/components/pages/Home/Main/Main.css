@@ -5,7 +5,7 @@
 	align-items: center;
 	min-height: 50vh;
 	padding: 0 1em;
-	background-color: var(--color-background);
+	background-color: var(--color-background--dark);
 	mix-blend-mode: screen;
 	backdrop-filter: brightness(80%);
 	-webkit-backdrop-filter: brightness(80%);

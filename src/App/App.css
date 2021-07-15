@@ -7,16 +7,17 @@
 :root {
 	--color-primary: #13f4b2;
 	--color-secondary: #f41355;
-	--color-background: #333;
+	--color-background--dark: #333;
 	--color-background--light: #8c8c8c;
-	--color-foreground:  #eee;
+	--color-white:  #fff;
+	--color-black: #000;
 }
 
 body {
 	margin: 0;
 	line-height: 1.6;
 	font-family: "Zen Dots", monospace;
-	color: var(--color-foreground);
+	color: var(--color-white);
 }
 
 img {
@@ -71,15 +72,16 @@ p {
 	padding: 1em 1.5em;
 	border-radius: 10px;
 	background-color: var(--color-secondary);
-	color: white;
+	color: var(--color-white);
 	font-size: 1.2rem;
-	mix-blend-mode: luminosity;
 	filter: contrast(200%);
 	transform: perspective(1em) rotateX(-1deg);
 	box-shadow: 0 0 0.5em white;
+	transition: color 0.3s, background-color 0.5s;
 }
 
 .btn:focus,
 .btn:hover {
-	mix-blend-mode: unset;
+	color: var(--color-primary);
+	background-color: var(--color-black);
 }
