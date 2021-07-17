@@ -29,10 +29,10 @@ export default function NavBar({ page }) {
 						<Link to="./" className={page === 0 ? 'nav__link nav__link--active' : 'nav__link'}>Home</Link>
 					</li>
 					<li>
-						<Link to="/Games" className={page === 1 ? 'nav__link nav__link--active' : 'nav__link'}>Games</Link>
+						<Link to="/games" className={page === 1 ? 'nav__link nav__link--active' : 'nav__link'}>Games</Link>
 					</li>
 					<li>
-						<Link to="/Planned-Games" className={page === 1 ? 'nav__link nav__link--active' : 'nav__link'}>Planned Games</Link>
+						<Link to="/planned-games" className={page === 2 ? 'nav__link nav__link--active' : 'nav__link'}>Planned Games</Link>
 					</li>
 				</ul>
 			</article>

@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import Background from './components/Background/Background.jsx'
 import Home from './components/pages/Home/Home.jsx';
+import Games from './components/pages/Games/Games.jsx';
 import './App.css';
 export default function App() {
 	return (
@@ -13,8 +14,11 @@ export default function App() {
 			<Background />
 			<Router>
 				<Switch>
-					<Route path="/">
+					<Route exact path="/">
 						<Home />
+					</Route>
+					<Route exact path="/games">
+						<Games />
 					</Route>
 				</Switch>
 			</Router>
