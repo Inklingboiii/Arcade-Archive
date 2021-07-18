@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 
 export default function NavBar({ page }) {
@@ -25,15 +25,28 @@ export default function NavBar({ page }) {
 			<article className={`nav__content ${navToggle ? 'nav__content--active' : 'nav__content--inactive'}`}>
 				<a href="#" role="logo" className="nav__logo">Arcade Archive</a>
 				<ul className="nav__list">
-					<li>
-						<Link to="./" className={page === 0 ? 'nav__link nav__link--active' : 'nav__link'}>Home</Link>
-					</li>
-					<li>
-						<Link to="/games" className={page === 1 ? 'nav__link nav__link--active' : 'nav__link'}>Games</Link>
-					</li>
-					<li>
-						<Link to="/planned-games" className={page === 2 ? 'nav__link nav__link--active' : 'nav__link'}>Planned Games</Link>
-					</li>
+				{
+					[
+						{
+							content: 'Home',
+							path: '/'
+						},
+						{
+							content: 'Games',
+							path: '/games'
+						},
+						{
+							content: 'Planned Games',
+							path: '/planned-games'
+						}
+					].map((page) => {
+						return(
+							<li key={page.content}> 
+								<NavLink exact to={page.path} className="nav__link" activeClassName="nav__link--active">{page.content}</NavLink>
+							</li>
+						);
+					})
+				}
 				</ul>
 			</article>
 		</nav>

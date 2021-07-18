@@ -6,8 +6,8 @@ import Main from './Main/Main.jsx';
 export default function Home() {
 	return(
 		<>
-			<NavBar page={0}/>
-			<Header title="Arcade Archive"/>
+			<NavBar />
+			<Header title="Arcade Archive" />
 			<Main />
 		</>
 	);

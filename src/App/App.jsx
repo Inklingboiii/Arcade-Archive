@@ -14,12 +14,8 @@ export default function App() {
 			<Background />
 			<Router>
 				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
-					<Route exact path="/games">
-						<Games />
-					</Route>
+					<Route exact path="/" component={ Home } />
+					<Route path="/games" component={ Games } />
 				</Switch>
 			</Router>
 		</>
