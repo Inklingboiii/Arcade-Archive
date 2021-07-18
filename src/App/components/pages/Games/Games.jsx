@@ -5,7 +5,6 @@ import Header from '../../Header/Header.jsx';
 export default function Home() {
 	return(
 		<>
-			<NavBar />
 			<Header title="Games" />
 		</>
 	);
