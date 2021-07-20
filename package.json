@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "start": "snowpack dev && echo '/* /index.html  200' | cat >build/_redirects",
-    "build": "snowpack build && echo '/* /index.html  200' | cat >build/_redirects"
+    "start": "snowpack dev",
+    "build": "snowpack build"
   },
   "devDependencies": {
     "@snowpack/plugin-webpack": "^2.3.1",
