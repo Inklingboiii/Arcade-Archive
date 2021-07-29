@@ -1,0 +1,41 @@
+{
+	"games": [
+		{
+			"name": "Whack A Mole",
+			"desc": "The first Javascript game that I made with the help of DOM manipulation.",
+			"img": "/images/game-images/whack-a-mole-png",
+			"url": "https://whacka-mole.netlify.app"
+
+		},
+		{
+			"name": "Lavasion",
+			"desc": "A Javascript game where you plays as a block of water that can't touch the lava blocks",
+			"img": "/images/game-images/lavasion.png",
+			"url": "https://lavasion.netlify.app"
+		},
+		{
+			"name": "Climb",
+			"desc": "A Typescript platformer where you jump around tetris-ish blocks",
+			"img": "/images/game-images/climb.png",
+			"url": "https://climb-game.netlify.app"
+		},
+		{
+			"name": "Maze Tag",
+			"desc": "A Javascript game taking place in a maze where you flee from an enemy that can find the shortest way to the player with the breadth-first-search algorithm",
+			"img": "/images/game-images/maze-tag.png",
+			"url": "https://maze-tag.netlify.app/"
+		},
+		{
+			"name": "Maze Adventure",
+			"desc": "A Three.js game where you walk in a 3D maze created with cellular automata(http://justinparrtech.com/JustinParr-Tech/wp-content/uploads/Creating%20Mazes%20Using%20Cellular%20Automata_v2.pdf)",
+			"img": "/images/game-images/maze-adventure.jpg",
+			"url": "https://maze-adventure.netliy.app"
+		},
+		{
+			"name": "Snake 3D",
+			"desc": "A Typescript + Three.js game made for a german programming competition in which you plays as a 3D snake that collects apples",
+			"img": "/images/game-images/snake-3d.png",
+			"url": "https://snake-spiel.netlify.app"
+		}
+	]
+}
