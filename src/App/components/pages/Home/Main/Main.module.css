@@ -1,0 +1,8 @@
+
+.text {
+	font-size: 1.2rem;
+}
+
+.main__text > .dot {
+	color: var(--color-primary);
+}

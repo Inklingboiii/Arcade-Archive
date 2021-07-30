@@ -3,7 +3,7 @@
 		{
 			"name": "Whack A Mole",
 			"desc": "The first Javascript game that I made with the help of DOM manipulation.",
-			"img": "/images/game-images/whack-a-mole-png",
+			"img": "/images/game-images/whack-a-mole.png",
 			"url": "https://whacka-mole.netlify.app"
 
 		},
