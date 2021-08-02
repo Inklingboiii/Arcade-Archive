@@ -1,4 +1,4 @@
-.nav__content {
+.content {
 	display: flex;
 	flex-wrap: wrap;
 	position: fixed;
@@ -13,19 +13,22 @@
 	background: var(--color-background--dark);
 }
 
-.nav__logo {
+.logo {
 	display:  flex;
 	align-items: center;
 	column-gap: 1em;
 	flex-grow: 1;
 	color: var(--color-white);
 }
-.nav__logo:hover,
-.nav__logo:focus {
+
+.logo:hover,
+.logo:focus {
 	text-decoration: none;
 }
 
-.nav__logo:before {
+/* Line animation onhover*/
+
+.logo:before {
 	content: "";
 	background: var(--color-secondary);
 	--distance: 0.5em;
@@ -35,37 +38,37 @@
 	transition: transform 0.3s;
 }
 
-.nav__logo:is(:hover, :focus):before {
+.logo:is(:hover, :focus):before {
 	transform: scaleY(1);
 }
 
-.nav__list {
+.list {
 	flex-grow: 1;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
 
-.nav__link {
+.link {
 	color: var(--color-primary);
 	padding: 0.5em;
 }
 
-.nav__link:hover,
-.nav__link:focus {
+.link:hover,
+.link:focus {
 	text-decoration: underline;
 }
 
-.nav__link--active {
+.linkActive {
 	background: var(--color-background--light);
 	border-radius: 5%;
 }
 
-.nav__toggler {
+.toggler {
 	display: none;
 }
 @media (max-width: 55em) {
-	.nav__content {
+	.content {
 		flex-direction: column;
 		left: unset;
 		min-height: 100vh;
@@ -76,7 +79,7 @@
 		transition: transform 1s, opacity 1s;
 	}
 
-	.nav__content--active {
+	.contentActive {
 		opacity: 1;
 		transform: translateX(0);
 		pointer-events: auto;
@@ -92,7 +95,7 @@
 	}
 
 	/* Nav togglling*/
-	.nav__toggler {
+	.toggler {
 		display: inline-block;
 		position: fixed;
 		top: 1em;
@@ -104,11 +107,11 @@
 		cursor: pointer;
 	}
 	
-	.nav__svg {
+	.svg {
 		width: 5em;
 	}
 
-	.nav__svg > line {
+	.svg > line {
 		stroke: var(--color-white);
 	}
 }

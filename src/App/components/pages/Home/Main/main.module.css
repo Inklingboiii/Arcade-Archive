@@ -1,21 +1,11 @@
 .main {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center;
-	min-height: 50vh;
-	padding: 0 1em;
-	background-color: var(--color-background--dark);
-	mix-blend-mode: screen;
-	backdrop-filter: brightness(80%);
-	-webkit-backdrop-filter: brightness(80%);
 	clip-path: polygon(50% 0, 100% 15%, 100% 100%, 0 100%, 0 15%);
 }
 
-.main__text {
+.text {
 	font-size: 1.2rem;
 }
 
-.main__text > .dot {
+.dot {
 	color: var(--color-primary);
 }
