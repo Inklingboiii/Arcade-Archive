@@ -1,0 +1,19 @@
+.main {
+}
+
+.cardContainer {
+	position: relative;
+}
+
+.card {
+	position: absolute;
+	inset:  0;
+	background-color: var(--color-background--light);
+	visibility: hidden;
+}
+
+.cardActive {
+	position: relative;
+	z-index:  50;
+	visibility: visible;
+}
