@@ -1,5 +1,5 @@
 .main {
-	height: 100vh;
+	
 }
 
 .cardContainer {
@@ -7,19 +7,20 @@
 	justify-content: center;
 	position: relative;
 	flex-basis: 75%;
-	height: 100%;
+	height: 90vh;
 }
 
 .card {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-around;
 	position: absolute;
 	inset: 0;
 	background-color: var(--color-background--light);
 	visibility: hidden;
 	height: 100%;
+	padding-inline: 0.5em;
 }
 
 .cardActive {
@@ -31,4 +32,8 @@
 .cardImage {
 	min-height: 0;
 	flex-basis: 50%;
+}
+
+.cardText {
+	text-align: center;
 }

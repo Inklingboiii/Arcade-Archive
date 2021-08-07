@@ -22,8 +22,8 @@ export default function Carousel({ data }) {
 							<li key={game.id} className={`${carouselStyles.card} ${game.id === cardId ? carouselStyles.cardActive : ''}`}>
 								<img src={game.img} alt={game.name} className={carouselStyles.cardImage}/>
 								<h2>{game.name}</h2>
-								<p>{game.desc}</p>
-								<a href={game.url}>Link to game</a>
+								<p className={carouselStyles.cardText}>{game.desc}</p>
+								<a href={game.url} className="btn">Link to game</a>
 							</li>
 							)
 						})
