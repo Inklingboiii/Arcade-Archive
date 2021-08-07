@@ -5,13 +5,7 @@ export default {
     public: '/',
     src: '/dist',
   },
-  plugins: [
-    [
-      {
-        /* see "Plugin Options" below */
-      },
-    ],
-  ],
+  plugins: [],
   routes: [
     /* Enable an SPA Fallback in development: */
     // {"match": "routes", "src": ".*", "dest": "/index.html"},
