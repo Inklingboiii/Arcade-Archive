@@ -3,11 +3,11 @@
 }
 
 .cardContainer {
-	display: flex;
-	justify-content: center;
 	position: relative;
-	flex-basis: 75%;
-	height: 90vh;
+	flex-basis: 50%;
+	height: 85vh;
+	transform-style: preserve-3d;
+	perspective: 100em;
 }
 
 .card {
@@ -18,22 +18,69 @@
 	position: absolute;
 	inset: 0;
 	background-color: var(--color-background--light);
-	visibility: hidden;
 	height: 100%;
 	padding-inline: 0.5em;
+	visibility: hidden;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+	
 }
 
-.cardActive {
-	position: relative;
-	z-index:  50;
-	visibility: visible;
+/* Backface of the card*/
+.card::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-color: inherit;
+	transform-style: preserve-3d;
+	transform: rotateX(180deg);
+	backface-visibility: hidden;
 }
 
 .cardImage {
+	/* https://stackoverflow.com/questions/36230944/prevent-flex-items-from-overflowing-a-container*/
 	min-height: 0;
 	flex-basis: 50%;
 }
 
 .cardText {
 	text-align: center;
+}
+
+.cardLink {
+	transform: initial!important;
+}
+/* Animations*/
+
+.cardDown {
+	animation: cardDown 10s;
+}
+
+.cardUp {
+	animation: cardUp 10s 10s forwards;
+}
+
+@keyframes cardDown {
+	99% {
+		transform: rotateX(-180deg);
+	}
+
+	100% {
+		visibility: visible;
+		z-index: 0;
+	}
+}
+
+@keyframes cardUp {
+	0% {
+		transform: rotateX(-180deg);
+	}
+	99% {
+		transform: rotateX(-360deg);
+	}
+
+	100% {
+		visibility: visible;
+		z-index: 50;
+	}
 }
