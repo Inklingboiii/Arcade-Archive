@@ -51,15 +51,23 @@
 }
 /* Animations*/
 
-.cardDown {
-	animation: cardDown var(--card-speed);
+.cardDownDisappear {
+	animation: cardDownDisappear var(--card-speed);
 }
 
-.cardUp {
-	animation: cardUp var(--card-speed) var(--card-speed) forwards;
+.cardUpAppear {
+	animation: cardUpAppear var(--card-speed) var(--card-speed) forwards;
 }
 
-@keyframes cardDown {
+.cardDownAppear {
+	animation: cardDownAppear var(--card-speed) var(--card-speed) forwards;
+}
+
+.cardUpDisappear {
+	animation: cardUpDisappear var(--card-speed);
+}
+
+@keyframes cardDownDisappear {
 	to {
 		transform: rotateX(-180deg);
 		visibility: visible;
@@ -67,7 +75,7 @@
 	}
 }
 
-@keyframes cardUp {
+@keyframes cardUpAppear {
 	from {
 		transform: rotateX(-180deg);
 	}
@@ -75,5 +83,24 @@
 		transform: rotateX(-360deg);
 		visibility: visible;
 		z-index: 50;
+	}
+}
+
+@keyframes cardDownAppear {
+	from {
+		transform: rotateX(180deg);
+	}
+	to {
+		transform: rotateX(360deg);
+		visibility: visible;
+		z-index: 50;
+	}
+}
+
+@keyframes cardUpDisappear {
+	to {
+		transform: rotateX(180deg);
+		visibility: visible;
+		z-index: 0;
 	}
 }

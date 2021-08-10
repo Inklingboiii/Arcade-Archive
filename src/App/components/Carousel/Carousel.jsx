@@ -3,7 +3,7 @@ import carouselStyles from './carousel.module.css';
 
 export default function Carousel({ data }) {
 	const [cardId, cardIdSetter] = useState(0);
-	const [direction, directionSetter] = useState(0) // 1 == right, -1 === left
+	const [direction, directionSetter] = useState(-1) // 1 == right, -1 === left
 
 	function decrementCardId() {
 		cardIdSetter((cardId) => cardId - 1);
@@ -16,10 +16,16 @@ export default function Carousel({ data }) {
 	}
 
 	function getClasses(gameId) {
-		if(gameId === cardId) {
-			return carouselStyles.cardUp;
-		} else if(gameId === cardId + direction) {
-			return carouselStyles.cardDown;
+		if(direction < 0) { // Next
+			if(gameId === cardId)
+				return carouselStyles.cardUpAppear;
+			if(gameId === cardId + direction)
+				return carouselStyles.cardDownDisappear;
+		} else { // Last card
+			if(gameId === cardId)
+				return carouselStyles.cardDownAppear;
+			if(gameId === cardId + direction)
+				return carouselStyles.cardUpDisappear;
 		}
 		return '';
 	}
