@@ -3,6 +3,7 @@
 }
 
 .cardContainer {
+	--card-speed: .5s;
 	position: relative;
 	flex-basis: 50%;
 	height: 85vh;
@@ -23,7 +24,6 @@
 	visibility: hidden;
 	backface-visibility: hidden;
 	transform-style: preserve-3d;
-	
 }
 
 /* Backface of the card*/
@@ -32,7 +32,6 @@
 	position: absolute;
 	inset: 0;
 	background-color: inherit;
-	transform-style: preserve-3d;
 	transform: rotateX(180deg);
 	backface-visibility: hidden;
 }
@@ -53,33 +52,27 @@
 /* Animations*/
 
 .cardDown {
-	animation: cardDown 10s;
+	animation: cardDown var(--card-speed);
 }
 
 .cardUp {
-	animation: cardUp 10s 10s forwards;
+	animation: cardUp var(--card-speed) var(--card-speed) forwards;
 }
 
 @keyframes cardDown {
-	99% {
+	to {
 		transform: rotateX(-180deg);
-	}
-
-	100% {
 		visibility: visible;
 		z-index: 0;
 	}
 }
 
 @keyframes cardUp {
-	0% {
+	from {
 		transform: rotateX(-180deg);
 	}
-	99% {
+	to {
 		transform: rotateX(-360deg);
-	}
-
-	100% {
 		visibility: visible;
 		z-index: 50;
 	}
