@@ -3,28 +3,43 @@ import carouselStyles from './carousel.module.css';
 
 export default function Carousel({ data }) {
 	const [cardId, cardIdSetter] = useState(0);
-	const [direction, directionSetter] = useState(-1) // 1 == right, -1 === left
+	const [direction, directionSetter] = useState(-1) // -1 == right, 1 === left
 
 	function decrementCardId() {
-		cardIdSetter((cardId) => cardId - 1);
+		if(cardId > 0) // Check if there's A card to the left
+			cardIdSetter((cardId) => cardId - 1);
+		else
+			cardIdSetter(data.games.length - 1)
 		directionSetter(1);
 	}
 
 	function incrementCardId() {
-		cardIdSetter((cardId) => cardId + 1);
+		if(cardId < data.games.length - 1) // Check if there's A card to the right
+			cardIdSetter((cardId) => cardId + 1);
+		else 
+			cardIdSetter(0);
 		directionSetter(-1)
 	}
 
 	function getClasses(gameId) {
-		if(direction < 0) { // Next
-			if(gameId === cardId)
+		let isCurrentCard  = gameId === cardId + direction;
+		const isNextCard = gameId === cardId;
+
+		if(direction < 0) { // Right
+			// Reset current card back to the left
+			if(gameId - direction > data.games.length - 1)
+				isCurrentCard = cardId === 0;
+			if(isNextCard)
 				return carouselStyles.cardUpAppear;
-			if(gameId === cardId + direction)
+			if(isCurrentCard)
 				return carouselStyles.cardDownDisappear;
-		} else { // Last card
-			if(gameId === cardId)
+		} else { // Left
+			// Reset current card back to the right
+			if(gameId - direction < 0)
+				isCurrentCard = cardId === data.games.length - 1;
+			if(isNextCard)
 				return carouselStyles.cardDownAppear;
-			if(gameId === cardId + direction)
+			if(isCurrentCard)
 				return carouselStyles.cardUpDisappear;
 		}
 		return '';
