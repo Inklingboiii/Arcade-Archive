@@ -1,5 +1,8 @@
 .main {
+	display: flex;
 	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
 	clip-path: polygon(50% 0, 100% 15%, 100% 100%, 0 100%, 0 15%);
 }
 

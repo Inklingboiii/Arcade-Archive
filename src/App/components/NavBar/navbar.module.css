@@ -85,11 +85,11 @@
 		pointer-events: auto;
 	}
 
-	.nav__list {
+	.list {
 		flex-direction: column;
 	}
 
-	.nav__logo {
+	.logo {
 		/* For correct vertical alignment*/
 		column-gap: 0;
 	}

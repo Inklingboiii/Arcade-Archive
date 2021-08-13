@@ -1,6 +1,3 @@
-.main {
-	
-}
 
 .cardContainer {
 	--card-speed: .5s;
@@ -44,6 +41,7 @@
 
 .cardText {
 	text-align: center;
+	max-width: 100%;
 }
 
 .cardLink {
