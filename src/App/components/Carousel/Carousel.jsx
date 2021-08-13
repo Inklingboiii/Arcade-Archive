@@ -47,7 +47,7 @@ export default function Carousel({ data }) {
 	return(
 
 		<main className={carouselStyles.main}>
-			<button className="btn" onClick={decrementCardId}>last</button>
+			<button className="btn btnSecondary" onClick={decrementCardId}>last</button>
 				<ul className={carouselStyles.cardContainer}>
 					{
 						data.games.map((game) => {
@@ -58,13 +58,13 @@ export default function Carousel({ data }) {
 								<img src={game.img} alt={game.name} className={carouselStyles.cardImage}/>
 								<h2>{game.name}</h2>
 								<p className={carouselStyles.cardText}>{game.desc}</p>
-								<a href={game.url} className={`btn ${carouselStyles.cardLink}`}>Link to game</a>
+								<a href={game.url} className={`btn btnPrimary ${carouselStyles.cardLink}`}>Link to game</a>
 							</li>
 							)
 						})
 					}
 				</ul>
-			<button className="btn" onClick={incrementCardId}>next</button>
+			<button className="btn btnSecondary" onClick={incrementCardId}>next</button>
 		</main>
 	);
 }

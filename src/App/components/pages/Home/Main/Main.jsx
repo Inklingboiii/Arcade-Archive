@@ -6,7 +6,7 @@ export default function Main() {
 	return(
 		<main className={mainStyles.main}>
 			<p className={mainStyles.text}>Hi! This website is a collection of all the javascript games i created<span className={mainStyles.dot}>.</span></p>
-			<Link to="/games" className="btn"> Would you like to play them?</Link>
+			<Link to="/games" className={`btn btnPrimary ${mainStyles.button}`}> Would you like to play them?</Link>
 		</main>
 	);
 }

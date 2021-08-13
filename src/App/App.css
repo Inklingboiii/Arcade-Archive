@@ -73,19 +73,31 @@ p {
 	border: none;
 	padding: 1em 1.5em;
 	border-radius: 10px;
-	background-color: var(--color-secondary);
-	color: var(--color-white);
 	font-size: 1.2rem;
-	filter: contrast(200%);
-	transform: perspective(1em) rotateX(-1deg);
+	filter: contrast(150%);
 	box-shadow: 0 0 0.5em white;
 	transition: color 0.3s, background-color 0.5s;
 }
 
-.btn:focus,
-.btn:hover {
+
+.btnPrimary {
+	background-color: var(--color-secondary);
+	color: var(--color-white);
+}
+
+.btnPrimary:is(:hover, :focus) {
 	color: var(--color-primary);
 	background-color: var(--color-black);
+}
+
+.btnSecondary {
+	background-color: var(--color-primary);
+	color: var(--color-black);
+}
+
+.btnSecondary:is(:hover, :focus) {
+	color: var(--color-secondary);
+	background-color: transparent;
 }
 
 main {

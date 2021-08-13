@@ -10,3 +10,7 @@
 .dot {
 	color: var(--color-primary);
 }
+
+.button {
+	transform: perspective(1em) rotateX(-1deg);
+}
