@@ -2,6 +2,8 @@
 	display: grid;
 	grid-template-columns: 1fr 3fr 1fr;
 	place-items: center;
+	padding-top: 15%;
+	clip-path: polygon(50% 15%, 100% 0, 100% 100%, 0 100%, 0 0);
 }
 .cardContainer {
 	--card-speed: .5s;
