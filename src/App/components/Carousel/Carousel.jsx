@@ -47,7 +47,7 @@ export default function Carousel({ data }) {
 	return(
 
 		<main className={carouselStyles.main}>
-			<button className="btn btnSecondary" onClick={decrementCardId}>last</button>
+			<button className={`btn btnSecondary ${carouselStyles.buttonBefore}`} onClick={decrementCardId}>last</button>
 				<ul className={carouselStyles.cardContainer}>
 					{
 						data.games.map((game) => {
@@ -64,7 +64,7 @@ export default function Carousel({ data }) {
 						})
 					}
 				</ul>
-			<button className="btn btnSecondary" onClick={incrementCardId}>next</button>
+			<button className={`btn btnSecondary ${carouselStyles.buttonAfter}`} onClick={incrementCardId}>next</button>
 		</main>
 	);
 }

@@ -1,11 +1,23 @@
-
+.main {
+	display: grid;
+	grid-template-columns: 1fr 3fr 1fr;
+	place-items: center;
+}
 .cardContainer {
 	--card-speed: .5s;
 	position: relative;
-	flex-basis: 50%;
+	width: 100%;
 	height: 85vh;
 	transform-style: preserve-3d;
 	perspective: 50em;
+	overflow: hidden;
+}
+
+/* Buttons*/
+
+.buttonBefore,
+.buttonAfter {
+	transform: perspective(1em) rotateX(1deg);
 }
 
 .card {
@@ -80,7 +92,7 @@
 	to {
 		transform: rotateX(-360deg);
 		visibility: visible;
-		z-index: 50;
+		z-index: 5;
 	}
 }
 
@@ -91,7 +103,7 @@
 	to {
 		transform: rotateX(360deg);
 		visibility: visible;
-		z-index: 50;
+		z-index: 5;
 	}
 }
 
@@ -101,4 +113,24 @@
 		visibility: visible;
 		z-index: 0;
 	}
+}
+
+/* Move buttons down on mobile*/
+@media (max-width: 55em) {
+	.main {
+		grid: 3fr 1fr / repeat(2, 1fr);
+	}
+
+	.cardContainer {
+		grid-area: 1 / 1 / 2 / 3;
+	}
+
+	.buttonBefore {
+		grid-area: 2 / 1 / 3 / 2;
+	}
+
+	.buttonAfter {
+		grid-area: 2 / 2 / 3 / 3;
+	}
+
 }
