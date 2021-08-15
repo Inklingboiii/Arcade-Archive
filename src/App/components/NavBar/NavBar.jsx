@@ -23,7 +23,7 @@ export default function NavBar({ page }) {
 			}
 			</button>
 			<article className={`${navStyles.content} ${navToggle ? navStyles.contentActive : ''}`}>
-				<a href="#" role="logo" className={navStyles.logo}>Arcade Archive</a>
+				<a href="#" className={navStyles.logo}>Arcade Archive</a>
 				<ul className={navStyles.list}>
 				{
 					[
