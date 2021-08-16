@@ -47,24 +47,30 @@ export default function Carousel({ data }) {
 	return(
 
 		<main className={carouselStyles.main}>
-			<button className={`btn btnSecondary ${carouselStyles.buttonBefore}`} onClick={decrementCardId}>last</button>
-				<ul className={carouselStyles.cardContainer}>
-					{
-						data.games.map((game) => {
-							return( 
-							<li key={game.id} className={
-								`${carouselStyles.card} ${getClasses(game.id)}`
-							}>
-								<img src={game.img} alt={game.name} className={carouselStyles.cardImage}/>
-								<h2>{game.name}</h2>
-								<p className={carouselStyles.cardText}>{game.desc}</p>
-								<a href={game.url} className={`btn btnPrimary ${carouselStyles.cardLink}`}>Link to game</a>
-							</li>
-							)
-						})
-					}
-				</ul>
-			<button className={`btn btnSecondary ${carouselStyles.buttonAfter}`} onClick={incrementCardId}>next</button>
+			{
+				data.games.length > 0 ?
+				<>
+					<button className={`btn btnSecondary ${carouselStyles.buttonBefore}`} onClick={decrementCardId}>last</button>
+					<ul className={carouselStyles.cardContainer}>
+						{
+							data.games.map((game) => {
+								return( 
+								<li key={game.id} className={
+									`${carouselStyles.card} ${getClasses(game.id)}`
+								}>
+									<img src={game.img} alt={game.name} className={carouselStyles.cardImage}/>
+									<h2>{game.name}</h2>
+									<p className={carouselStyles.cardText}>{game.desc}</p>
+									<a href={game.url} className={`btn btnPrimary ${carouselStyles.cardLink}`}>Link to game</a>
+								</li>
+								)
+							})
+						}
+					</ul>
+				<button className={`btn btnSecondary ${carouselStyles.buttonAfter}`} onClick={incrementCardId}>next</button>
+			</>
+			: <h2 className={carouselStyles.emptyText}>There are currently no games in this list. Maybe if you come back some other time there will be.</h2>
+			}
 		</main>
 	);
 }
