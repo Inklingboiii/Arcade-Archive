@@ -32,7 +32,7 @@
 			"name": "Maze Adventure",
 			"desc": "A Three.js game where you walk in a 3D maze created with cellular automata(http://justinparrtech.com/JustinParr-Tech/wp-content/uploads/Creating%20Mazes%20Using%20Cellular%20Automata_v2.pdf)",
 			"img": "/images/game-images/maze-adventure.jpg",
-			"url": "https://maze-adventure.netliy.app",
+			"url": "https://maze-adventure.netlify.app",
 			"id": 4
 		},
 		{
