@@ -3,7 +3,7 @@ import Three from '../Three.js';
 import GameOfLife from './GameOfLife.js';
 import backgroundStyles from './background.module.css';
 
-export default function() {
+export default function Background() {
 	const canvasReference = useRef();
 	useEffect(() => {
 		const three = new Three(canvasReference.current);

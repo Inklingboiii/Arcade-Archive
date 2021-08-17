@@ -5,6 +5,6 @@ import Carousel from '../../../Carousel/Carousel.jsx';
 
 export default function Main() {
 	return (
-		<Carousel data={data} path="../pages/Games/Main"/>
+		<Carousel data={data}/>
 	);
 }
