@@ -54,9 +54,22 @@
 	padding: 0.5em;
 }
 
+/* Fallback for safari */
 .link:hover,
 .link:focus {
 	text-decoration: underline;
+}
+
+/* Makes it so the underline doesn't persist after clicking on link */
+@supports selector(.link:focus-visible) {
+	.link:focus {
+		text-decoration: none;
+	}
+	
+	.link:hover,
+	.link:focus-visible {
+		text-decoration: underline;
+	}
 }
 
 .linkActive {
